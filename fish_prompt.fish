@@ -492,10 +492,7 @@ function __bobthefish_show_ruby -S -d 'Current Ruby (rvm/rbenv)'
   else if type -q rbenv
     set ruby_version (rbenv version-name)
     # Don't show global ruby version...
-    set -q RBENV_ROOT
-      or set -l RBENV_ROOT $HOME/.rbenv
-
-    read -l global_ruby_version <$RBENV_ROOT/version
+    set global_ruby_version (rbenv global)
 
     [ "$global_ruby_version" ]
       or set global_ruby_version system
